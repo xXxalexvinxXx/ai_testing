@@ -1,9 +1,7 @@
-import logging
 import time
 import yaml
-
+import BaseApi
 from testpage import OperationsHelper
-from testpage import APIOperationsHelper
 
 with open('./testdata.yaml') as f:
     testdata = yaml.safe_load(f)
@@ -23,15 +21,17 @@ def test_step1(browser):
     assert font_size == "32px", f"Expected font size '32px', but got '{font_size}'"
 
 
-def test_user_profile():
+def test_steep3():
     """Проверка данных профиля пользователя."""
-    helper = APIOperationsHelper()
+    helper = BaseApi.BaseAPI()
     token = helper.get_login_token()
 
     # Проверяем, что токен получен успешно
     assert token is not None, "Токен не был получен"
 
     user_id = testdata['user_id']  # Получаем user_id из конфигурации
+
+    # Используем метод для получения профиля пользователя
     profile_data = helper.get_user_profile(token, user_id)
 
     # Проверяем, что username в профиле совпадает с username в testdata

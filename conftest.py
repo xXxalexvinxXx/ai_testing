@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.service import Service as SerChrome
 from selenium.webdriver.firefox.service import Service as SerFire
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from BaseApp import BaseAPI
+from BaseApi import BaseAPI
 
 with open('./testdata.yaml') as f:
     testdata = yaml.safe_load(f)
