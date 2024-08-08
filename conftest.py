@@ -14,14 +14,9 @@ with open('./testdata.yaml') as f:
 
 @pytest.fixture(scope='session')
 def browser():
-    if browser == 'firefox':
-        service = SerFire(executable_path=GeckoDriverManager().install())
-        options = webdriver.FirefoxOptions()
-        driver = webdriver.Firefox(service=service, options=options)
-    else:
-        service = SerChrome(executable_path=ChromeDriverManager().install())
-        options = webdriver.ChromeOptions()
-        driver = webdriver.Chrome(service=service, options=options)
+    service = SerChrome(executable_path=ChromeDriverManager().install())
+    options = webdriver.ChromeOptions()
+    driver = webdriver.Chrome(service=service, options=options)
     yield driver
     driver.quit()
 

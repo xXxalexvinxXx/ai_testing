@@ -2,6 +2,7 @@ import time
 import yaml
 import BaseApi
 from testpage import OperationsHelper
+from BaseCmd import NiktoHelper
 
 with open('./testdata.yaml') as f:
     testdata = yaml.safe_load(f)
@@ -20,6 +21,11 @@ def test_step1(browser):
     font_size = testpage.get_about_text()
     assert font_size == "32px", f"Expected font size '32px', but got '{font_size}'"
 
+def test_step2():
+    """Тест для проверки отсутствия ошибок в выводе Nikto."""
+    nikto = NiktoHelper()
+    output = nikto.run_nikto()
+    assert '0 error(s)' in output, "Nikto обнаружил ошибки"
 
 def test_steep3():
     """Проверка данных профиля пользователя."""
