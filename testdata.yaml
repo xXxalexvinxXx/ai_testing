@@ -1,0 +1,10 @@
+browser: chrome
+address: 'https://test-stand.gb.ru/'
+user: salvadore
+user_id: 33909
+pass: 9a5da6365b
+login_field: '//*[@id="login"]//div[1]/label/input'
+pass_field: '//*[@id="login"]/div[2]/label/input'
+login_btn: 'button'
+about: '//*[@id="app"]/main/nav/ul/li[1]/a'
+title_about: '//*[@id="app"]/main/div/div/h1'
