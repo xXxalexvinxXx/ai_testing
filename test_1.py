@@ -21,11 +21,13 @@ def test_step1(browser):
     font_size = testpage.get_about_text()
     assert font_size == "32px", f"Expected font size '32px', but got '{font_size}'"
 
+
 def test_step2():
     """Тест для проверки отсутствия ошибок в выводе Nikto."""
     nikto = NiktoHelper()
     output = nikto.run_nikto()
     assert '0 error(s)' in output, "Nikto обнаружил ошибки"
+
 
 def test_steep3():
     """Проверка данных профиля пользователя."""
@@ -41,4 +43,5 @@ def test_steep3():
     profile_data = helper.get_user_profile(token, user_id)
 
     # Проверяем, что username в профиле совпадает с username в testdata
-    assert profile_data['username'] == testdata['user'], f"Username не совпадает: {profile_data['username']} != {testdata['user']}"
+    assert profile_data['username'] == testdata[
+        'user'], f"Username не совпадает: {profile_data['username']} != {testdata['user']}"
